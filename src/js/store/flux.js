@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
+      favorites: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -24,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((res) => res.json())
           .then((data) => {
             setStore({ Planets: data });
-            console.log(getStore());
+            console.log("store updated", getStore());
           })
           .catch((err) => console.error(err));
       },
@@ -36,6 +37,20 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(getStore());
           })
           .catch((err) => console.error(err));
+      },
+      addToFavorites: (item) => {
+        const favoriteArr = getStore()?.favorites;
+        setStore({ favorites: [...favoriteArr, item] });
+      },
+
+      // Remove from Favorites
+      removeFromFavorites: (name) => {
+        const store = getStore();
+        setStore({
+          favorites: store.favorites.filter(
+            (favorite) => favorite.name !== name
+          ),
+        });
       },
       changeColor: (index, color) => {
         //get the store
