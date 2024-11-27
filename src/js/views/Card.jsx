@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 const Card = ({ cardInfo }) => {
   const [detail, setDetail] = useState();
   const { store, actions } = useContext(Context);
+
   useEffect(() => {
     getDetail(cardInfo.url);
   }, []);

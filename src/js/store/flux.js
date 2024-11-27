@@ -47,9 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       removeFromFavorites: (name) => {
         const store = getStore();
         setStore({
-          favorites: store.favorites.filter(
-            (favorite) => favorite.name !== name
-          ),
+          favorites: store.favorites.filter((favorite) => favorite !== name),
         });
       },
       changeColor: (index, color) => {
