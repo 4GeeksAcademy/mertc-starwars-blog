@@ -10,7 +10,7 @@ function CardList({ cardTitle, cardCategory }) {
       <h1>{cardTitle}</h1>
       <div className="d-flex overflow-auto">
         {cardCategory?.map((item) => (
-          <Card key={item.uid} cardInfo={item}></Card>
+          <Card key={item.uid} category={cardTitle} cardInfo={item}></Card>
         ))}
       </div>
     </div>

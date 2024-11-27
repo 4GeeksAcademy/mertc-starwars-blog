@@ -15,7 +15,7 @@ export const Home = () => {
         <div className="col-10">
           {console.log("about to pass to Cardlist", store?.People)}
           <CardList
-            cardTitle="People"
+            cardTitle="characters"
             cardCategory={store?.People?.results}
           ></CardList>
           <CardList

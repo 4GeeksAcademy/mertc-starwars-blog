@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
-const Card = ({ cardInfo }) => {
+const Card = ({ category, cardInfo }) => {
   const [detail, setDetail] = useState();
   const { store, actions } = useContext(Context);
 
@@ -19,8 +19,19 @@ const Card = ({ cardInfo }) => {
 
   return (
     <div>
+      {console.log(
+        `https://starwars-visualguide.com/assets/img/${category}/${typeof cardInfo.uid}.jpg`
+      )}
       <div className="card" style={{ width: "18rem" }}>
-        <img className="card-img-top" src={rigoImage} alt="Card image cap" />
+        <img
+          className="card-img-top"
+          src={`https://starwars-visualguide.com/assets/img/${category.toLowerCase()}/${
+            category.toLowerCase() == "planets"
+              ? String(Number(cardInfo.uid) + 1)
+              : cardInfo.uid
+          }.jpg`}
+          alt="Card image cap"
+        />
         <div className="card-body">
           <h5 className="card-title">{cardInfo.name}</h5>
 
