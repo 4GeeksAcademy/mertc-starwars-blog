@@ -13,7 +13,6 @@ export const Home = () => {
       <div className="row">
         <div className="col-1"></div>
         <div className="col-10">
-          {console.log("about to pass to Cardlist", store?.People)}
           <CardList
             cardTitle="characters"
             cardCategory={store?.People?.results}
@@ -21,6 +20,23 @@ export const Home = () => {
           <CardList
             cardTitle="Planets"
             cardCategory={store?.Planets?.results}
+          ></CardList>
+          {console.log("about to pass to films", store?.Films?.result)}
+          <CardList
+            cardTitle="Films"
+            cardCategory={store?.Films?.result}
+          ></CardList>
+          <CardList
+            cardTitle="Species"
+            cardCategory={store?.Species?.results}
+          ></CardList>
+          <CardList
+            cardTitle="Vehicles"
+            cardCategory={store?.Vehicles?.results}
+          ></CardList>
+          <CardList
+            cardTitle="Starships"
+            cardCategory={store?.Starships?.results}
           ></CardList>
         </div>
         <div className="col-1"></div>

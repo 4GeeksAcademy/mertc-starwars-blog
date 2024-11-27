@@ -38,6 +38,42 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((err) => console.error(err));
       },
+      loadFilms: () => {
+        fetch("https://www.swapi.tech/api/Films")
+          .then((res) => res.json())
+          .then((data) => {
+            setStore({ Films: data });
+            console.log("store updated", getStore());
+          })
+          .catch((err) => console.error(err));
+      },
+      loadSpecies: () => {
+        fetch("https://www.swapi.tech/api/Species")
+          .then((res) => res.json())
+          .then((data) => {
+            setStore({ Species: data });
+            console.log("store updated", getStore());
+          })
+          .catch((err) => console.error(err));
+      },
+      loadStarships: () => {
+        fetch("https://www.swapi.tech/api/Starships")
+          .then((res) => res.json())
+          .then((data) => {
+            setStore({ Starships: data });
+            console.log("store updated", getStore());
+          })
+          .catch((err) => console.error(err));
+      },
+      loadVehicles: () => {
+        fetch("https://www.swapi.tech/api/Vehicles")
+          .then((res) => res.json())
+          .then((data) => {
+            setStore({ Vehicles: data });
+            console.log("store updated", getStore());
+          })
+          .catch((err) => console.error(err));
+      },
       addToFavorites: (item) => {
         const favoriteArr = getStore()?.favorites;
         setStore({ favorites: [...favoriteArr, item] });

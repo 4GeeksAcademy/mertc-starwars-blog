@@ -19,16 +19,12 @@ const Card = ({ category, cardInfo }) => {
 
   return (
     <div>
-      {console.log(
-        `https://starwars-visualguide.com/assets/img/${category}/${typeof cardInfo.uid}.jpg`
-      )}
       <div className="card" style={{ width: "18rem" }}>
         <img
+          onError={(e) => (e.target.src = rigoImage)}
           className="card-img-top"
           src={`https://starwars-visualguide.com/assets/img/${category.toLowerCase()}/${
-            category.toLowerCase() == "planets"
-              ? String(Number(cardInfo.uid) + 1)
-              : cardInfo.uid
+            cardInfo.uid
           }.jpg`}
           alt="Card image cap"
         />
