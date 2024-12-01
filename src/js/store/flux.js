@@ -33,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://www.swapi.tech/api/People")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ People: data });
+            setStore({ Characters: data });
             console.log(getStore());
           })
           .catch((err) => console.error(err));
@@ -86,19 +86,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           favorites: store.favorites.filter((favorite) => favorite !== name),
         });
       },
-      changeColor: (index, color) => {
-        //get the store
-        const store = getStore();
-
-        //we have to loop the entire demo array to look for the respective index
-        //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
-
-        //reset the global store
-        setStore({ demo: demo });
+      fetchAPI: (url) => {
+        console.log("url to fetch api", url);
+        return fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("inside fetchPI", data);
+            return data;
+          })
+          .catch((err) => console.error(err));
       },
     },
   };

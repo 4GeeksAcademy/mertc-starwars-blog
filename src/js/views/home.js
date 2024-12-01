@@ -14,8 +14,8 @@ export const Home = () => {
         <div className="col-1"></div>
         <div className="col-10">
           <CardList
-            cardTitle="characters"
-            cardCategory={store?.People?.results}
+            cardTitle="Characters"
+            cardCategory={store?.Characters?.results}
           ></CardList>
           <CardList
             cardTitle="Planets"

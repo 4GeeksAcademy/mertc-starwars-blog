@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
+import { Link, useParams } from "react-router-dom";
 
 const Card = ({ category, cardInfo }) => {
   const [detail, setDetail] = useState();
@@ -21,7 +22,9 @@ const Card = ({ category, cardInfo }) => {
     <div>
       <div className="card" style={{ width: "18rem" }}>
         <img
-          onError={(e) => (e.target.src = rigoImage)}
+          onError={(e) =>
+            (e.target.src = `https://starwars-visualguide.com/assets/img/big-placeholder.jpg`)
+          }
           className="card-img-top"
           src={`https://starwars-visualguide.com/assets/img/${category.toLowerCase()}/${
             cardInfo.uid
@@ -42,9 +45,15 @@ const Card = ({ category, cardInfo }) => {
             : null}
 
           <div className="d-flex">
-            <a href="#" className="btn btn-primary">
+            {/* <a href="#" className="btn btn-primary" >
               Learn more!
-            </a>
+            </a> */}
+            <Link
+              className="btn btn-primary"
+              to={"/card-details/" + category + "/" + cardInfo.uid}
+            >
+              <span>Learn more! </span>
+            </Link>
             <button
               type="button"
               className="btn btn-outline-warning ms-auto"
